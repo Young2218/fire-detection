@@ -50,7 +50,7 @@ class Solver:
                     break
         
         print(f"End Train in {epoch} epochs, Min Loss[{min_val_loss}]")
-        return min_val_loss
+        return str(min_val_loss)
         
     def train_one_epoch(self) -> float:
         self.model.train()        
