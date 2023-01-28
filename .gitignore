@@ -1,4 +1,3 @@
 /logs
 /saved_model
-src/main_efficient.py
 aihub_train_info.csv

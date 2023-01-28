@@ -6,7 +6,7 @@ class Solver:
     def __init__(self, model, max_epoch, early_stop, 
                  train_loader, val_loader, 
                  save_path, log_save_path,
-                 optimizer,criterion) -> None:
+                 optimizer,criterion, scheduler) -> None:
         self.model = model
         self.max_epoch = max_epoch
         self.early_stop = early_stop
@@ -19,6 +19,7 @@ class Solver:
         self.optimizer = optimizer
         self.criterion = criterion
         
+        self.scheduler = scheduler
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.writer = SummaryWriter(log_save_path)
     
@@ -71,6 +72,8 @@ class Solver:
             loss.backward()
             # adjust parameters based on the calculated gradients
             self.optimizer.step()
+            
+            self.scheduler.step()
         
         return sum(loss_list)/len(loss_list)
 

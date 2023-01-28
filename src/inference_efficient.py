@@ -19,9 +19,9 @@ from tqdm import tqdm
 from sklearn.metrics import confusion_matrix, accuracy_score
 
 CFG = {
-    'IMG_SIZE':128,
+    'IMG_SIZE':224,
     'MAX_EPOCH':1000,
-    'EARLY_STOP':20,
+    'EARLY_STOP':0,
     'LEARNING_RATE':5e-4,
     'BATCH_SIZE':1,
     'SEED':41
