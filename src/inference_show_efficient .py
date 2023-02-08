@@ -57,8 +57,8 @@ test_loader = DataLoader(test_dataset, batch_size = CFG['BATCH_SIZE'], shuffle=F
 print(le.classes_)
 print(le.transform(le.classes_))
 #/////////////////////// SETTING MODEL //////////////////////////////////////
-# test_order = ['b0','b0','b1','b2','b3','b4','b5','b6','b7','v2_s','v2_m','v2_l']
-test_order = ['b0','b1','b2','b3','b4','b5']
+test_order = ['b0','b0','b1','b2','b3','b4','b5','b6','b7','v2_s','v2_m','v2_l']
+# test_order = ['b0','b1','b2','b3','b4','b5']
 summary = {}
 
 for net_name in test_order:
@@ -91,6 +91,8 @@ for net_name in test_order:
             
     # f1_score = sum(f1_list)/len(f1_score)
     print(net_name)
-    print(f'time: {time.time() - start_time}')
+    #print(f'time: {time.time() - start_time}')
     print(f'accruacy: {accuracy_score(gt_list, pred_list)}')
-    print(confusion_matrix(gt_list, pred_list))
+    print(gt_list)
+    print(pred_list)
+    #print(confusion_matrix(gt_list, pred_list))

@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import os
 import random
-
+from tqdm import tqdm
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 
@@ -59,6 +59,12 @@ val_dataset = CNN_Dataset(img_paths=val_df['file_path'].values, labels=val_df['c
 val_loader = DataLoader(val_dataset, batch_size = CFG['BATCH_SIZE'], shuffle=False, num_workers=0)
 
 
+for images, labels in tqdm(train_loader):
+    pass
+for images, labels in tqdm(val_loader):
+    pass
+print('no problem imgs')
+    
 #/////////////////////// SETTING MODEL //////////////////////////////////////
 # train_order = ['b0','b1','b2','b3','b4','b5','b6','b7','v2_s','v2_m','v2_l']
 train_order = ['b0','b1','b2','b3','b4','b5','v2_s']
